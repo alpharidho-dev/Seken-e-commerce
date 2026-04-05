@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SEKEN - E-commerce barang second berkualitas. Jual beli barang bekas terpercaya dengan sistem COD." />
+  <title>SEKEN - E-Commerce Barang Second Berkualitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/output.css" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-seken-white min-h-screen">
+
+  <!-- ==================== TOP BAR ==================== -->
+  <div class="bg-seken-green text-seken-black text-xs">
+    <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 py-1.5">
+      <!-- Left side -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="font-medium hover:underline">Mulai Berjualan</a>
+        <a href="#" class="hover:underline">Download</a>
+        <span class="text-seken-black/70">Ikuti Kami di</span>
+        <div class="flex items-center gap-2">
+          <!-- Facebook -->
+          <a href="#" class="hover:opacity-70 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" class="hover:opacity-70 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="hover:opacity-70 transition-opacity">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <!-- X (Twitter) -->
+          <a href="#" class="hover:opacity-70 transition-opacity">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Right side -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="flex items-center gap-1 hover:opacity-70 transition-opacity">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          <span>Notifikasi</span>
+        </a>
+        <a href="chat.html" class="flex items-center gap-1 hover:opacity-70 transition-opacity">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <span>Chat</span>
+        </a>
+        <a href="#" class="flex items-center gap-1 hover:opacity-70 transition-opacity">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+          <span>Bantuan</span>
+        </a>
+        <a href="#" class="flex items-center gap-1 hover:opacity-70 transition-opacity">
+          <span>🇮🇩</span>
+          <span>Bahasa Indonesia</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="bg-seken-green">
+    <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 shrink-0">
+        <img src="assets/seken-logo.png" alt="SEKEN Logo" class="h-8 w-auto" />
+        <span class="text-xl font-bold text-seken-white">SEKEN</span>
+      </a>
+      <!-- Search Bar -->
+      <div class="flex-1 mx-6 max-w-[550px]">
+        <div class="flex items-center bg-seken-white rounded-lg overflow-hidden">
+          <div class="px-3 text-seken-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <input id="search-input" type="text" placeholder="Cari produk second berkualitas..." class="flex-1 py-2 pr-4 text-sm bg-transparent outline-none text-seken-black placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+      <!-- Cart + Auth -->
+      <div class="flex items-center gap-5 shrink-0">
+        <a href="#" class="relative text-seken-black hover:opacity-70 transition-opacity">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"/></svg>
+        </a>
+        <div class="flex items-center gap-2 text-sm font-semibold text-seken-black">
+          <a href="#" class="hover:underline">Daftar</a>
+          <span class="text-seken-black/50">|</span>
+          <a href="#" class="hover:underline">Log in</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== CATEGORY NAV ==================== -->
+  <nav class="bg-seken-green border-t border-seken-green-dark/20">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <div class="flex items-center justify-center gap-6 py-2 text-sm font-medium text-seken-black">
+        <a href="#" class="hover:underline transition-all">Terbaik</a>
+        <a href="#" class="hover:underline transition-all">Terlaris</a>
+        <a href="#" class="hover:underline transition-all">Termurah</a>
+        <a href="#" class="hover:underline transition-all">Tercepat</a>
+        <a href="#" class="hover:underline transition-all">Toko Lama</a>
+        <a href="#" class="hover:underline transition-all">Toko Baru</a>
+        <a href="#" class="hover:underline transition-all">Gratis Ongkir</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO BANNER ==================== -->
+  <section class="max-w-[1200px] mx-auto px-4 mt-5">
+    <div class="rounded-xl overflow-hidden relative">
+      <img src="assets/hero-banner.png" alt="SEKEN Banner - Berkualitas 90% Mulus" class="w-full h-auto object-cover" />
+      <!-- Banner dots indicator -->
+      <div class="absolute bottom-3 right-4 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-seken-white/50"></span>
+        <span class="w-2 h-2 rounded-full bg-seken-white/50"></span>
+        <span class="w-2 h-2 rounded-full bg-seken-white"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT SECTION ==================== -->
+  <section class="max-w-[1200px] mx-auto px-4 mt-8">
+    <!-- Filter Tabs -->
+    <div class="flex items-center gap-0 mb-6" id="filter-tabs">
+      <button class="px-5 py-1.5 border border-seken-black text-seken-black text-sm font-medium rounded-l-md bg-seken-white hover:bg-seken-gray-100 transition-colors">For You</button>
+      <button class="px-5 py-1.5 border border-l-0 border-seken-black text-seken-black text-sm font-medium bg-seken-white hover:bg-seken-gray-100 transition-colors">Terpercaya</button>
+      <button class="px-5 py-1.5 border border-l-0 border-seken-black text-seken-black text-sm font-medium rounded-r-md bg-seken-white hover:bg-seken-gray-100 transition-colors">Favorite</button>
+    </div>
+
+    <!-- Product Grid: 3 rows x 4 cols -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- Product Card Template (repeats 12 times with same 4 products) -->
+      <!-- ROW 1 -->
+      <!-- Card 1: Samsung Galaxy S21 5G -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/samsung-galaxy.png" alt="Samsung Galaxy S21 5G" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Samsung Galexy S21 5G</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: Philips V-Line monitor -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/philips-monitor.webp" alt="Philips V-Line monitor" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Philips V-Line monitor</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Rudi Store</span>
+            <span>Jakarta Selatan</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: Honda Vario 125 -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/honda-vario.png" alt="Honda Vario 125" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Honda Vario 125</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 20.300.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Aras Motorcycle</span>
+            <span>Bekasi</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4: iPad Gen 10 -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/ipad-gen10.webp" alt="iPad Gen 10" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">iPad Gen 10</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 6.000.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- ROW 2 (same 4 products) -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/samsung-galaxy.png" alt="Samsung Galaxy S21 5G" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Samsung Galexy S21 5G</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/philips-monitor.webp" alt="Philips V-Line monitor" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Philips V-Line monitor</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Rudi Store</span>
+            <span>Jakarta Selatan</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/honda-vario.png" alt="Honda Vario 125" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Honda Vario 125</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 20.300.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Aras Motorcycle</span>
+            <span>Bekasi</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/ipad-gen10.webp" alt="iPad Gen 10" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">iPad Gen 10</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 6.000.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- ROW 3 (same 4 products) -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/samsung-galaxy.png" alt="Samsung Galaxy S21 5G" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Samsung Galexy S21 5G</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/philips-monitor.webp" alt="Philips V-Line monitor" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Philips V-Line monitor</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Rudi Store</span>
+            <span>Jakarta Selatan</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/honda-vario.png" alt="Honda Vario 125" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Honda Vario 125</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 20.300.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Aras Motorcycle</span>
+            <span>Bekasi</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/ipad-gen10.webp" alt="iPad Gen 10" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">iPad Gen 10</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 6.000.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Lihat Lebih Banyak Button -->
+    <div class="flex justify-center mt-8">
+      <a href="#" class="border border-seken-black text-seken-black px-8 py-2.5 rounded-md text-sm font-medium hover:bg-seken-gray-100 transition-colors">
+        Lihat Lebih Banyak →
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== DIVIDER ==================== -->
+  <div class="max-w-[1200px] mx-auto px-4 mt-10">
+    <hr class="border-seken-border" />
+  </div>
+
+  <!-- ==================== PENCARIAN TERBANYAK ==================== -->
+  <section class="max-w-[1200px] mx-auto px-4 mt-8 mb-12">
+    <h2 class="text-lg font-bold text-seken-black text-center mb-6">Pencarian Terbanyak</h2>
+    <hr class="border-seken-border mb-6" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- Popular 1 -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/samsung-galaxy.png" alt="Samsung Galaxy S21 5G" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Samsung Galexy S21 5G</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- Popular 2 -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/philips-monitor.webp" alt="Philips V-Line monitor" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Philips V-Line monitor</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 3.500.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Rudi Store</span>
+            <span>Jakarta Selatan</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- Popular 3 -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/honda-vario.png" alt="Honda Vario 125" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">Honda Vario 125</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 20.300.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Aras Motorcycle</span>
+            <span>Bekasi</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+      <!-- Popular 4 -->
+      <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="p-4 flex items-center justify-center h-[180px] bg-seken-white">
+          <img src="assets/ipad-gen10.webp" alt="iPad Gen 10" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+        </div>
+        <div class="px-4 pb-4">
+          <h3 class="text-sm font-medium text-seken-black mb-1 leading-tight">iPad Gen 10</h3>
+          <p class="text-base font-bold text-seken-black mb-2">Rp 6.000.000</p>
+          <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
+            <span>Sinar Mutiara</span>
+            <span>Depok</span>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
+          </div>
+          <div class="bg-seken-green text-seken-white text-center text-xs font-semibold py-2 rounded-md hover:bg-seken-green-dark transition-colors">
+            Lihat Detail
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-seken-green text-seken-white">
+    <div class="max-w-[1200px] mx-auto px-4 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+
+        <!-- Column 1: Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="assets/seken-logo.png" alt="SEKEN Logo" class="h-8 w-auto"/>
+            <span class="text-xl font-bold">SEKEN</span>
+          </div>
+          <p class="text-sm font-medium mb-1">Customer Supports:</p>
+          <p class="text-sm opacity-90 mb-1">+62 881-0255-48350</p>
+          <p class="text-sm opacity-90">SEKEN@gmail.com</p>
+        </div>
+
+        <!-- Column 2: Top Category -->
+        <div>
+          <h4 class="font-bold text-sm mb-4">TOP CATEGORY</h4>
+          <ul class="space-y-2 text-sm opacity-90">
+            <li><a href="#" class="hover:underline">Computer & Laptop</a></li>
+            <li><a href="#" class="hover:underline">SmartPhone</a></li>
+            <li><a href="#" class="hover:underline">PS 4</a></li>
+            <li class="flex items-center gap-1">
+              <span class="w-4 border-t border-seken-white/50"></span>
+              <a href="#" class="hover:underline">Accessories</a>
+            </li>
+            <li><a href="#" class="hover:underline">Camera & Lenses</a></li>
+            <li><a href="#" class="hover:underline">TV & Homes</a></li>
+          </ul>
+          <a href="#" class="mt-3 border border-seken-white/50 text-xs px-3 py-1.5 rounded inline-flex items-center gap-1 hover:bg-seken-white/10 transition-colors">
+            Browse All Product <span>→</span>
+          </a>
+        </div>
+
+        <!-- Column 3: Quick Links -->
+        <div>
+          <h4 class="font-bold text-sm mb-4">QUICK LINKS</h4>
+          <ul class="space-y-2 text-sm opacity-90">
+            <li><a href="#" class="hover:underline">Shop Product</a></li>
+            <li><a href="chat.html" class="hover:underline">Chat realtime</a></li>
+            <li><a href="#" class="hover:underline">Wishlist</a></li>
+            <li><a href="#" class="hover:underline">Auction</a></li>
+            <li><a href="#" class="hover:underline">Track Order</a></li>
+            <li><a href="#" class="hover:underline">Customer Help</a></li>
+            <li><a href="#" class="hover:underline">About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Download App -->
+        <div>
+          <h4 class="font-bold text-sm mb-4">DOWNLOAD APP</h4>
+          <div class="space-y-3">
+            <!-- Google Play Badge -->
+            <a href="#" class="bg-seken-black rounded-lg px-3 py-2 flex items-center gap-2 w-fit hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white"><path d="M3.609 1.814L13.792 12 3.609 22.186a.996.996 0 01-.609-.921V2.735a.996.996 0 01.609-.921zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.707l2.776 1.607c.558.323.558.85 0 1.173l-2.776 1.607-2.534-2.534 2.534-2.534v.681zm-3.906-2.4L4.863 1.266l10.937 6.333-2.008 2.001z"/></svg>
+              <div>
+                <p class="text-[8px] opacity-80 text-seken-white">Coming Soon</p>
+                <p class="text-xs font-semibold text-seken-white">Google Play</p>
+              </div>
+            </a>
+            <!-- App Store Badge -->
+            <a href="#" class="bg-seken-black rounded-lg px-3 py-2 flex items-center gap-2 w-fit hover:opacity-80 transition-opacity">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <div>
+                <p class="text-[8px] opacity-80 text-seken-white">Coming Soon</p>
+                <p class="text-xs font-semibold text-seken-white">App Store</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 5: Popular Tags -->
+        <div>
+          <h4 class="font-bold text-sm mb-4">POPULAR TAG</h4>
+          <div class="flex flex-wrap gap-2">
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">PS2</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">iPhone</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">TV</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Asus Laptops</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Macbook</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">AC</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Motorcycle</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Power Bank</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Smart TV</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Speaker</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Tablet</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Microwave</a>
+            <a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">Samsung</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Bottom Footer -->
+    <div class="border-t border-seken-white/20">
+      <div class="max-w-[1200px] mx-auto px-4 py-4 text-center text-xs opacity-80">
+        SEKEN e-commerce © 2026. Design by Alpharidho & Sergie
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

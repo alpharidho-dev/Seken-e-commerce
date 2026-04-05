@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chat dengan penjual di SEKEN - E-Commerce barang second berkualitas." />
+  <title>Chat - SEKEN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/output.css" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    /* Custom scrollbar for chat */
+    .chat-area::-webkit-scrollbar { width: 6px; }
+    .chat-area::-webkit-scrollbar-track { background: transparent; }
+    .chat-area::-webkit-scrollbar-thumb { background: #D4D4D4; border-radius: 3px; }
+    .chat-area::-webkit-scrollbar-thumb:hover { background: #A3A3A3; }
+    .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+    .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+    .sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 2px; }
+  </style>
+</head>
+<body class="bg-seken-white h-screen flex flex-col overflow-hidden">
+
+  <!-- ==================== CHAT LAYOUT (Full Screen) ==================== -->
+  <div class="flex flex-1 min-h-0">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside class="w-[280px] bg-seken-green flex flex-col shrink-0">
+      <!-- Header -->
+      <div class="px-5 pt-5 pb-3">
+        <div class="flex items-center gap-2 mb-4">
+          <h1 class="text-xl font-bold text-seken-white">Pesan</h1>
+          <!-- Toggle switch (decorative) -->
+          <div class="w-10 h-5 bg-seken-white/30 rounded-full relative cursor-pointer">
+            <div class="w-4 h-4 bg-seken-white rounded-full absolute top-0.5 right-0.5 shadow-sm"></div>
+          </div>
+        </div>
+        <!-- Search -->
+        <div class="flex items-center bg-seken-white rounded-lg overflow-hidden">
+          <div class="pl-3 text-seken-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <input id="chat-search" type="text" placeholder="Cari ..." class="flex-1 py-2 px-2 text-sm bg-transparent outline-none text-seken-black placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="mx-5 border-t border-seken-white/20"></div>
+
+      <!-- Contact List -->
+      <div class="flex-1 overflow-y-auto sidebar-scroll px-3 py-3">
+        <!-- Active Contact -->
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-seken-white/15 cursor-pointer mb-1">
+          <div class="w-10 h-10 rounded-full bg-seken-white/20 shrink-0 flex items-center justify-center overflow-hidden">
+            <img src="assets/seken-logo.png" alt="Sinar Mutiara" class="w-full h-full object-cover" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-semibold text-seken-white truncate">Sinar Mutiara</span>
+              <span class="text-[10px] text-seken-white/70">10:25</span>
+            </div>
+            <p class="text-xs text-seken-white/70 truncate">Hi juga</p>
+          </div>
+        </div>
+
+        <!-- Other contacts would go here (not in the design, so not added) -->
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CHAT AREA ==================== -->
+    <main class="flex-1 flex flex-col min-w-0">
+
+      <!-- Chat Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-seken-border bg-seken-white">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-seken-gray-200 shrink-0 flex items-center justify-center overflow-hidden">
+            <img src="assets/seken-logo.png" alt="Sinar Mutiara" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-seken-black">Sinar Mutiara</h2>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1 text-xs bg-seken-green text-seken-white px-2 py-0.5 rounded-full font-medium">
+                <span class="w-1.5 h-1.5 bg-seken-white rounded-full"></span>
+                Online
+              </span>
+              <span class="text-xs text-seken-gray-500">Biasanya membalas dalam 1 jam</span>
+            </div>
+          </div>
+        </div>
+        <!-- Action icons (phone, video from design) -->
+        <div class="flex items-center gap-3">
+          <button class="w-9 h-9 rounded-lg bg-seken-gray-100 flex items-center justify-center hover:bg-seken-gray-200 transition-colors">
+            <svg class="w-5 h-5 text-seken-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </button>
+          <button class="w-9 h-9 rounded-lg bg-seken-gray-100 flex items-center justify-center hover:bg-seken-gray-200 transition-colors">
+            <svg class="w-5 h-5 text-seken-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div class="flex-1 overflow-y-auto chat-area px-6 py-6 bg-seken-white" id="chat-messages">
+
+        <!-- Sender (current user) message - right -->
+        <div class="flex justify-end mb-4">
+          <div class="max-w-[60%]">
+            <div class="bg-seken-gray-200 text-seken-black rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm">
+              Hi.
+            </div>
+            <div class="flex items-center justify-end gap-1 mt-1">
+              <span class="text-[10px] text-seken-gray-400">10.27</span>
+              <svg class="w-3.5 h-3.5 text-seken-green" fill="currentColor" viewBox="0 0 24 24"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Receiver (seller) message - left -->
+        <div class="flex mb-4">
+          <div class="max-w-[60%]">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="w-6 h-6 rounded-full bg-seken-gray-200 shrink-0 overflow-hidden">
+                <img src="assets/seken-logo.png" alt="Sinar Mutiara" class="w-full h-full object-cover" />
+              </div>
+              <span class="text-xs font-semibold text-seken-black">Sinar Mutiara</span>
+            </div>
+            <div class="bg-seken-gray-100 text-seken-black rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm ml-8">
+              Hi juga
+            </div>
+            <span class="text-[10px] text-seken-green ml-8 mt-1 block">10.25</span>
+          </div>
+        </div>
+
+        <!-- Date divider -->
+        <div class="flex items-center justify-center my-4">
+          <span class="text-xs text-seken-gray-400 bg-seken-gray-100 px-4 py-1 rounded-full">Hari ini</span>
+        </div>
+
+        <!-- Receiver message -->
+        <div class="flex mb-4">
+          <div class="max-w-[60%]">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="w-6 h-6 rounded-full bg-seken-gray-200 shrink-0 overflow-hidden">
+              </div>
+              <span class="text-xs font-semibold text-seken-black">Budi_Store</span>
+            </div>
+            <div class="bg-seken-gray-100 text-seken-black rounded-2xl rounded-tl-sm px-4 py-2.5 text-sm ml-8">
+              Ada yang bisa saya bantu? 😊
+            </div>
+            <span class="text-[10px] text-seken-green ml-8 mt-1 block">10.26</span>
+          </div>
+        </div>
+
+        <!-- Sender message -->
+        <div class="flex justify-end mb-4">
+          <div class="max-w-[60%]">
+            <div class="bg-seken-gray-200 text-seken-black rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm">
+              Saya mau tanya produk yang masih ready
+            </div>
+            <div class="flex items-center justify-end gap-1 mt-1">
+              <span class="text-[10px] text-seken-gray-400">10.27</span>
+              <svg class="w-3.5 h-3.5 text-seken-green" fill="currentColor" viewBox="0 0 24 24"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Chat Input -->
+      <div class="px-6 py-4 border-t border-seken-border bg-seken-white">
+        <div class="flex items-center gap-3">
+          <!-- Attach button -->
+          <button id="btn-attach" class="w-10 h-10 rounded-full bg-seken-green flex items-center justify-center hover:bg-seken-green-dark transition-colors shrink-0">
+            <svg class="w-5 h-5 text-seken-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <!-- Text input -->
+          <div class="flex-1 flex items-center bg-seken-gray-100 rounded-full overflow-hidden border border-seken-border">
+            <input id="chat-input" type="text" placeholder="Masukkan pesan" class="flex-1 py-2.5 px-4 text-sm bg-transparent outline-none text-seken-black placeholder:text-seken-gray-400" />
+          </div>
+          <!-- Send button -->
+          <button id="btn-send" class="w-10 h-10 rounded-full bg-seken-green flex items-center justify-center hover:bg-seken-green-dark transition-colors shrink-0">
+            <svg class="w-5 h-5 text-seken-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ==================== CHAT JS ==================== -->
+  <script>
+    // Simple chat interaction
+    const chatInput = document.getElementById('chat-input');
+    const btnSend = document.getElementById('btn-send');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      const now = new Date();
+      const time = now.getHours().toString().padStart(2, '0') + '.' + now.getMinutes().toString().padStart(2, '0');
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'flex justify-end mb-4';
+      msgDiv.innerHTML = `
+        <div class="max-w-[60%]">
+          <div class="bg-seken-gray-200 text-seken-black rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm">
+            ${text}
+          </div>
+          <div class="flex items-center justify-end gap-1 mt-1">
+            <span class="text-[10px] text-seken-gray-400">${time}</span>
+            <svg class="w-3.5 h-3.5 text-seken-green" fill="currentColor" viewBox="0 0 24 24"><path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/></svg>
+          </div>
+        </div>
+      `;
+
+      chatMessages.appendChild(msgDiv);
+      chatInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    btnSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+
+</body>
+</html>
