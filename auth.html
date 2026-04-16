@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SEKEN - Masuk atau Daftar Akun" />
+  <title>SEKEN · Masuk / Daftar</title>
+
+  <!-- Font & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/output.css" />
+
+  <!-- Ikon Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+<div class="max-w-[1000px] w-full bg-seken-white rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+
+  <!-- ========== PANEL KIRI (INFO) ========== -->
+  <div class="md:w-[40%] bg-seken-green p-8 flex flex-col justify-center text-seken-black">
+    <div class="flex items-center gap-3 mb-8">
+      <img src="assets/seken-logo.png" alt="SEKEN Logo" class="h-12 w-auto" />
+      <span class="text-4xl font-bold italic tracking-wider">SEKEN</span>
+    </div>
+    <div class="bg-seken-white text-center py-3 mb-10 border border-seken-black">
+      <h2 class="font-semibold tracking-widest text-sm">SECOND HAND / FIRST CHOICE</h2>
+    </div>
+    <div class="space-y-5 pl-2">
+      <div class="flex items-center gap-4"><div class="w-8 h-8 border border-seken-black bg-transparent shrink-0"></div><span class="font-medium text-sm tracking-wide">CHECKOUT LEBIH CEPAT</span></div>
+      <div class="flex items-center gap-4"><div class="w-8 h-8 border border-seken-black bg-transparent shrink-0"></div><span class="font-medium text-sm tracking-wide">SIMPAN PRODUK FAVORIT</span></div>
+      <div class="flex items-center gap-4"><div class="w-8 h-8 border border-seken-black bg-transparent shrink-0"></div><span class="font-medium text-sm tracking-wide">VOUCHER EKSKLUSIF</span></div>
+      <div class="flex items-center gap-4"><div class="w-8 h-8 border border-seken-black bg-transparent shrink-0"></div><span class="font-medium text-sm tracking-wide">LACAK PESANAN</span></div>
+    </div>
+  </div>
+
+  <!-- ========== PANEL KANAN (FORM) ========== -->
+  <div class="md:w-[60%] p-8 md:p-12 flex flex-col items-center justify-center relative">
+    <a href="index.html" class="absolute top-6 right-6 text-seken-gray-400 hover:text-seken-black transition-colors">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </a>
+
+    <!-- Tab Navigasi -->
+    <div class="flex w-full mb-10 border-b border-seken-gray-300 relative">
+      <button id="tab-masuk" onclick="switchTab('masuk')" class="w-1/2 pb-4 text-center font-semibold text-seken-black tracking-[0.2em] relative z-10 transition-colors">[ MASUK ]</button>
+      <button id="tab-daftar" onclick="switchTab('daftar')" class="w-1/2 pb-4 text-center font-semibold text-seken-gray-400 tracking-[0.2em] relative z-10 hover:text-seken-black transition-colors">[ DAFTAR ]</button>
+      <div id="tab-indicator" class="absolute bottom-[-1px] left-0 w-1/2 border-b-2 border-seken-black transition-transform duration-300 ease-in-out"></div>
+    </div>
+
+    <!-- FORM MASUK -->
+    <div id="form-masuk" class="w-full max-w-sm transition-opacity duration-300 opacity-100">
+      <div class="mb-5">
+        <label class="block text-xs text-seken-gray-500 mb-2 uppercase tracking-wider font-semibold">EMAIL</label>
+        <div class="flex border border-seken-gray-300 focus-within:border-seken-black transition">
+          <div class="px-4 py-3 border-r border-seken-gray-300 bg-seken-gray-100/50 text-blue-500"><i data-lucide="mail" class="w-5 h-5"></i></div>
+          <input type="email" id="login-email" placeholder="nama@email.com" class="w-full px-4 py-3 outline-none text-sm placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+      <div class="mb-5">
+        <label class="block text-xs text-seken-gray-500 mb-2 uppercase tracking-wider font-semibold">KATA SANDI</label>
+        <div class="flex border border-seken-gray-300 focus-within:border-seken-black transition">
+          <div class="px-4 py-3 border-r border-seken-gray-300 bg-seken-gray-100/50 text-yellow-500"><i data-lucide="lock" class="w-5 h-5"></i></div>
+          <input type="password" id="login-password" placeholder="••••••••" class="w-full px-4 py-3 outline-none text-sm placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+      <div class="flex items-center justify-between mb-8">
+        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded border-seken-gray-300 text-blue-500" checked /><span class="text-sm text-seken-gray-600">Ingat saya</span></label>
+        <a href="#" class="text-sm text-seken-gray-600 hover:text-seken-black hover:underline">Lupa password?</a>
+      </div>
+      <button onclick="handleLogin()" class="w-full bg-seken-gray-200 hover:bg-seken-green hover:text-seken-white text-seken-gray-600 font-semibold py-4 border border-seken-gray-300 hover:border-seken-green transition tracking-[0.2em]">[ MASUK ]</button>
+    </div>
+
+    <!-- FORM DAFTAR -->
+    <div id="form-daftar" class="w-full max-w-sm hidden opacity-0 transition-opacity duration-300">
+      <div class="mb-5">
+        <label class="block text-xs text-seken-gray-500 mb-2 uppercase tracking-wider font-semibold">NAMA LENGKAP</label>
+        <div class="flex border border-seken-gray-300 focus-within:border-seken-black transition">
+          <div class="px-4 py-3 border-r border-seken-gray-300 bg-seken-gray-100/50 text-green-500"><i data-lucide="user" class="w-5 h-5"></i></div>
+          <input type="text" id="reg-name" placeholder="Nama Lengkap Kamu" class="w-full px-4 py-3 outline-none text-sm placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+      <div class="mb-5">
+        <label class="block text-xs text-seken-gray-500 mb-2 uppercase tracking-wider font-semibold">EMAIL</label>
+        <div class="flex border border-seken-gray-300 focus-within:border-seken-black transition">
+          <div class="px-4 py-3 border-r border-seken-gray-300 bg-seken-gray-100/50 text-blue-500"><i data-lucide="mail" class="w-5 h-5"></i></div>
+          <input type="email" id="reg-email" placeholder="nama@email.com" class="w-full px-4 py-3 outline-none text-sm placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+      <div class="mb-8">
+        <label class="block text-xs text-seken-gray-500 mb-2 uppercase tracking-wider font-semibold">KATA SANDI</label>
+        <div class="flex border border-seken-gray-300 focus-within:border-seken-black transition">
+          <div class="px-4 py-3 border-r border-seken-gray-300 bg-seken-gray-100/50 text-yellow-500"><i data-lucide="lock" class="w-5 h-5"></i></div>
+          <input type="password" id="reg-password" placeholder="Minimal 8 karakter" class="w-full px-4 py-3 outline-none text-sm placeholder:text-seken-gray-400" />
+        </div>
+      </div>
+      <button onclick="handleRegister()" class="w-full bg-seken-gray-200 hover:bg-seken-green hover:text-seken-white text-seken-gray-600 font-semibold py-4 border border-seken-gray-300 hover:border-seken-green transition tracking-[0.2em]">[ DAFTAR ]</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    lucide.createIcons();
+
+    const tabMasuk = document.getElementById('tab-masuk');
+    const tabDaftar = document.getElementById('tab-daftar');
+    const formMasuk = document.getElementById('form-masuk');
+    const formDaftar = document.getElementById('form-daftar');
+    const indicator = document.getElementById('tab-indicator');
+
+    // ---------- FUNGSI PINDAH TAB ----------
+    window.switchTab = function(tab) {
+      const isMasuk = (tab === 'masuk');
+      tabMasuk.classList.toggle('text-seken-black', isMasuk);
+      tabMasuk.classList.toggle('text-seken-gray-400', !isMasuk);
+      tabDaftar.classList.toggle('text-seken-black', !isMasuk);
+      tabDaftar.classList.toggle('text-seken-gray-400', isMasuk);
+      indicator.style.transform = isMasuk ? 'translateX(0%)' : 'translateX(100%)';
+
+      if (isMasuk) {
+        formDaftar.classList.add('opacity-0');
+        setTimeout(() => {
+          formDaftar.classList.add('hidden');
+          formMasuk.classList.remove('hidden');
+          formMasuk.offsetHeight;
+          formMasuk.classList.remove('opacity-0');
+          formMasuk.classList.add('opacity-100');
+        }, 300);
+      } else {
+        formMasuk.classList.remove('opacity-100');
+        formMasuk.classList.add('opacity-0');
+        setTimeout(() => {
+          formMasuk.classList.add('hidden');
+          formDaftar.classList.remove('hidden');
+          formDaftar.offsetHeight;
+          formDaftar.classList.remove('opacity-0');
+          formDaftar.classList.add('opacity-100');
+        }, 300);
+      }
+    };
+
+    // Cek parameter ?tab=daftar
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('tab') === 'daftar') {
+      window.addEventListener('load', () => switchTab('daftar'));
+    }
+
+    // ---------- FUNGSI LOGIN (FETCH data.json) ----------
+    window.handleLogin = async function() {
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (!email || !password) {
+        alert('Mohon isi email dan kata sandi.');
+        return;
+      }
+
+      try {
+        const response = await fetch('data.json');
+        if (!response.ok) throw new Error('Gagal memuat data pengguna.');
+        const users = await response.json();
+        const usersArray = Array.isArray(users) ? users : [users];
+
+        const user = usersArray.find(u => u.email === email && u.password === password);
+
+        if (user) {
+          localStorage.setItem('seken_user', JSON.stringify({
+            name: user.Name || email.split('@')[0],
+            email: user.email,
+            isLoggedIn: true
+          }));
+          alert(`Berhasil masuk! Selamat datang, ${user.Name || 'User'}!`);
+          window.location.href = 'index.html';
+        } else {
+          alert('Email atau kata sandi salah! Pastikan data ada di file data.json');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Terjadi kesalahan koneksi atau gagal membaca data.json');
+      }
+    };
+
+    // ---------- FUNGSI REGISTRASI (SIMULASI MURNI) ----------
+    window.handleRegister = async function() {
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+
+      if (!name || !email || !password) {
+        alert('Mohon isi semua data pendaftaran.');
+        return;
+      }
+
+      try {
+        const response = await fetch('data.json');
+        if (response.ok) {
+          const users = await response.json();
+          const usersArray = Array.isArray(users) ? users : [users];
+          if (usersArray.some(u => u.email === email)) {
+            alert('Email sudah terdaftar di database utama!');
+            return;
+          }
+        }
+      } catch (e) {
+        // Abaikan error fetch, lanjutkan simulasi
+      }
+
+      alert(`[SIMULASI] Pendaftaran "${name}" berhasil diterima!\n\n*(Catatan Sistem: Karena murni Native HTML, data Anda tidak akan mengubah file data.json secara permanen)*`);
+
+      localStorage.setItem('seken_user', JSON.stringify({
+        name: name,
+        email: email,
+        isLoggedIn: true
+      }));
+      window.location.href = 'index.html';
+    };
+
+  })();
+</script>
+</body>
+</html>
