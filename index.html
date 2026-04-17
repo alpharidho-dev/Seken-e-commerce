@@ -135,7 +135,7 @@
 
   <!-- ==================== TOP BAR ==================== -->
   <div class="bg-seken-green text-seken-black text-xs">
-    <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 py-1.5">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-8 py-1.5">
       <div class="flex items-center gap-4"> 
         <a href="#" class="font-medium hover:underline">Mulai Berjualan</a>
         <a href="#" class="hover:underline">Download</a>
@@ -170,55 +170,57 @@
 
   <!-- ==================== HEADER ==================== -->
   <header class="bg-seken-green">
-    <div class="max-w-[1200px] mx-auto flex items-center justify-between px-4 py-3">
+    <div class="max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-8 py-3">
+      
+      <!-- Kiri: Logo -->
       <a href="index.html" class="flex items-center gap-2 shrink-0">
         <img src="assets/seken-logo.png" alt="SEKEN Logo" class="h-8 w-auto" />
         <span class="text-xl font-bold text-seken-white">SEKEN</span>
       </a>
-      <div class="flex-1 mx-6 max-w-[550px]">
-        <div class="flex items-center bg-seken-white rounded-lg overflow-hidden">
+      
+      <!-- Tengah: Search Bar. --> 
+      <div class="flex-1 flex justify-center px-8 lg:px-16">
+        <div class="w-full max-w-[600px] flex items-center bg-seken-white rounded-lg overflow-hidden">
           <div class="px-3 text-seken-gray-400">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           </div>
           <input id="search-input" type="text" placeholder="Cari produk second berkualitas..." class="flex-1 py-2 pr-4 text-sm bg-transparent outline-none text-seken-black placeholder:text-seken-gray-400" />
         </div>
       </div>
-      <div class="flex items-center gap-5 shrink-0">
-        <!-- <a href="#" class="text-seken-black hover:opacity-70"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6M17 13l1.5 6M9 21h6M9 21a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg></a> -->
-        <div id="auth-section" class="flex items-center gap-2 text-sm font-semibold text-seken-black">
-          <!-- Dynamic content: login/register OR user popup (hover) -->
-          <a href="auth.html?tab=daftar" class="hover:underline">Daftar</a>
-          <span class="opacity-50">|</span>
-          <a href="auth.html" class="hover:underline">Log in</a>
-        </div>
+
+      <!-- Kanan: Auth -->
+      <div id="auth-section" class="flex items-center gap-5 shrink-0">
+        <a href="auth.html?tab=daftar">Daftar</a>
+        <span class="opacity-50">|</span>
+        <a href="auth.html">Log in</a>  
       </div>
     </div>
   </header>
 
   <!-- ==================== CATEGORY NAV ==================== -->
-  <nav class="bg-seken-green border-t border-seken-green-dark/20">
-    <div class="max-w-[1200px] mx-auto px-4">
+  <nav class="bg-seken-green">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-center gap-6 py-2 text-sm font-medium text-seken-black">
-        <a href="#" class="hover:underline">Terbaik</a>
-        <a href="#" class="hover:underline">Terlaris</a>
-        <a href="#" class="hover:underline">Termurah</a>
-        <a href="#" class="hover:underline">Tercepat</a>
-        <a href="#" class="hover:underline">Toko Lama</a>
-        <a href="#" class="hover:underline">Toko Baru</a>
-        <a href="#" class="hover:underline">Gratis Ongkir</a>
+        <a href="#">Terbaik</a>
+        <a href="#">Terlaris</a>
+        <a href="#">Termurah</a>
+        <a href="#">Tercepat</a>
+        <a href="#">Toko Lama</a>
+        <a href="#">Toko Baru</a>
+        <a href="#">Gratis Ongkir</a>
       </div>
     </div>
   </nav>
 
   <!-- ==================== HERO BANNER ==================== -->
-  <section class="max-w-[1200px] mx-auto px-4 mt-5">
+  <section class="max-w-[1440px] mx-auto px-6 lg:px-8 mt-5">
     <div class="rounded-xl overflow-hidden relative">
       <img src="assets/hero-banner.png" alt="SEKEN Banner - Berkualitas 90% Mulus" class="w-full h-auto object-cover" />
     </div>
   </section>
 
   <!-- ==================== PRODUCT SECTION ==================== -->
-  <section class="max-w-[1200px] mx-auto px-4 mt-8">
+  <section class="max-w-[1440px] mx-auto px-6 lg:px-8 mt-8">
     <div class="flex items-center gap-0 mb-6">
       <button class="px-5 py-1.5 border border-seken-black text-seken-black text-sm font-medium rounded-l-md bg-seken-white hover:bg-seken-gray-100 transition-colors">For You</button>
       <button class="px-5 py-1.5 border border-l-0 border-seken-black text-seken-black text-sm font-medium bg-seken-white hover:bg-seken-gray-100 transition-colors">Terpercaya</button>
@@ -231,7 +233,7 @@
   </section>
 
   <!-- ==================== PENCARIAN TERBANYAK ==================== -->
-  <section class="max-w-[1200px] mx-auto px-4 mt-10 mb-12">
+  <section class="max-w-[1440px] mx-auto px-6 lg:px-8 mt-10 mb-12">
     <hr class="border-seken-border" />
     <h2 class="text-lg font-bold text-seken-black text-center my-6">Pencarian Terbanyak</h2>
     <hr class="border-seken-border mb-6" />
@@ -240,7 +242,7 @@
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="bg-seken-green text-seken-white">
-    <div class="max-w-[1200px] mx-auto px-4 py-10">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-8 py-10">
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div>
           <div class="flex items-center gap-2 mb-4">
@@ -295,7 +297,7 @@
       </div>
     </div>
     <div class="border-t border-seken-white/20">
-      <div class="max-w-[1200px] mx-auto px-4 py-4 text-center text-xs opacity-80">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-8 py-4 text-center text-xs opacity-80">
         SEKEN e-commerce © 2026. Design by Alpharidho & Sergie
       </div>
     </div>
