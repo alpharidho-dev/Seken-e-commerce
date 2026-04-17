@@ -9,7 +9,127 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dist/output.css" />
-  <style>* { font-family: 'Inter', sans-serif; }</style>
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    
+    /* Popup hover styles — muncul saat kursor diarahkan tanpa perlu klik */
+    .user-menu-container {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .user-popup {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      min-width: 200px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e5e7eb;
+      padding: 0.5rem 0;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+    
+    /* saat hover di area trigger atau popup itu sendiri, tampilkan dengan efek smooth */
+    .user-menu-container:hover .user-popup,
+    .user-popup:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    
+    /* item dalam popup */
+    .user-popup-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.875rem;
+      color: #1e1e2a;
+      transition: background 0.15s;
+      background: white;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .user-popup-item:hover {
+      background-color: #f3f4f6;
+    }
+    
+    .user-popup-divider {
+      height: 1px;
+      background-color: #e9ecef;
+      margin: 0.35rem 0;
+    }
+    
+    .popup-logout {
+      color: #dc2626;
+      font-weight: 500;
+    }
+    
+    .popup-logout:hover {
+      background-color: #fef2f2;
+    }
+    
+    /* avatar circle & trigger area */
+    .user-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: default;
+      padding: 0.25rem 0.5rem;
+      border-radius: 40px;
+      transition: background 0.2s;
+    }
+    
+    .user-trigger:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+    
+    .avatar-circle {
+      width: 2rem;
+      height: 2rem;
+      background-color: #1e1e2a;
+      color: white;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .user-name {
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #1e1e2a;
+    }
+    
+    .chevron-icon {
+      width: 1rem;
+      height: 1rem;
+      color: #4b5563;
+      transition: transform 0.2s;
+    }
+    
+    .user-menu-container:hover .chevron-icon {
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
 <body class="bg-seken-white min-h-screen">
 
@@ -64,8 +184,9 @@
         </div>
       </div>
       <div class="flex items-center gap-5 shrink-0">
-        <a href="#" class="text-seken-black hover:opacity-70"><i data-lucide="shopping-cart" class="w-6 h-6"></i></a>
+        <!-- <a href="#" class="text-seken-black hover:opacity-70"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6M17 13l1.5 6M9 21h6M9 21a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg></a> -->
         <div id="auth-section" class="flex items-center gap-2 text-sm font-semibold text-seken-black">
+          <!-- Dynamic content: login/register OR user popup (hover) -->
           <a href="auth.html?tab=daftar" class="hover:underline">Daftar</a>
           <span class="opacity-50">|</span>
           <a href="auth.html" class="hover:underline">Log in</a>
@@ -93,11 +214,6 @@
   <section class="max-w-[1200px] mx-auto px-4 mt-5">
     <div class="rounded-xl overflow-hidden relative">
       <img src="assets/hero-banner.png" alt="SEKEN Banner - Berkualitas 90% Mulus" class="w-full h-auto object-cover" />
-      <!-- <div class="absolute bottom-3 right-4 flex items-center gap-1.5">
-        <span class="w-2 h-2 rounded-full bg-seken-white/50"></span>
-        <span class="w-2 h-2 rounded-full bg-seken-white/50"></span>
-        <span class="w-2 h-2 rounded-full bg-seken-white"></span>
-      </div> -->
     </div>
   </section>
 
@@ -108,7 +224,6 @@
       <button class="px-5 py-1.5 border border-l-0 border-seken-black text-seken-black text-sm font-medium bg-seken-white hover:bg-seken-gray-100 transition-colors">Terpercaya</button>
       <button class="px-5 py-1.5 border border-l-0 border-seken-black text-seken-black text-sm font-medium rounded-r-md bg-seken-white hover:bg-seken-gray-100 transition-colors">Favorite</button>
     </div>
-    <!-- Product Grid (3 rows x 4 cols = 12 cards, rendered by JS) -->
     <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
     <div class="flex justify-center mt-8">
       <a href="#" class="border border-seken-black text-seken-black px-8 py-2.5 rounded-md text-sm font-medium hover:bg-seken-gray-100 transition-colors">Lihat Lebih Banyak →</a>
@@ -127,7 +242,6 @@
   <footer class="bg-seken-green text-seken-white">
     <div class="max-w-[1200px] mx-auto px-4 py-10">
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-        <!-- Brand -->
         <div>
           <div class="flex items-center gap-2 mb-4">
             <img src="assets/seken-logo.png" alt="SEKEN Logo" class="h-8 w-auto" />
@@ -137,7 +251,6 @@
           <p class="text-sm opacity-90 mb-1">+62 881-0255-48350</p>
           <p class="text-sm opacity-90">SEKEN@gmail.com</p>
         </div>
-        <!-- Top Category -->
         <div>
           <h4 class="font-bold text-sm mb-4">TOP CATEGORY</h4>
           <ul class="space-y-2 text-sm opacity-90">
@@ -150,7 +263,6 @@
           </ul>
           <a href="#" class="mt-3 border border-seken-white/50 text-xs px-3 py-1.5 rounded inline-flex items-center gap-1 hover:bg-seken-white/10 transition-colors">Browse All Product <span>→</span></a>
         </div>
-        <!-- Quick Links -->
         <div>
           <h4 class="font-bold text-sm mb-4">QUICK LINKS</h4>
           <ul class="space-y-2 text-sm opacity-90">
@@ -163,7 +275,6 @@
             <li><a href="#" class="hover:underline">About Us</a></li>
           </ul>
         </div>
-        <!-- Download App -->
         <div>
           <h4 class="font-bold text-sm mb-4">DOWNLOAD APP</h4>
           <div class="space-y-3">
@@ -177,7 +288,6 @@
             </a>
           </div>  
         </div>
-        <!-- Popular Tags -->
         <div>
           <h4 class="font-bold text-sm mb-4">POPULAR TAG</h4>
           <div class="flex flex-wrap gap-2" id="popular-tags"></div>
@@ -191,9 +301,8 @@
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // Product data (no duplication!)
+    // ---------- DATA PRODUK (SAMPLE) ----------
     const products = [
       { name: "Samsung Galexy S21 5G", price: "Rp 3.500.000", seller: "Sinar Mutiara", location: "Depok", img: "assets/samsung-galaxy.png" },
       { name: "Philips V-Line monitor", price: "Rp 3.500.000", seller: "Rudi Store", location: "Jakarta Selatan", img: "assets/philips-monitor.webp" },
@@ -201,7 +310,6 @@
       { name: "iPad Gen 10", price: "Rp 6.000.000", seller: "Sinar Mutiara", location: "Depok", img: "assets/ipad-gen10.webp" },
     ];
 
-    // Render product card HTML
     function createCard(product) {
       return `
         <a href="product-detail.html" class="bg-seken-white rounded-xl border border-seken-border overflow-hidden hover:shadow-lg transition-shadow group">
@@ -214,7 +322,7 @@
             <div class="flex items-center justify-between text-xs text-seken-gray-500 mb-1">
               <span>${product.seller}</span>
               <span>${product.location}</span>
-            </div>
+            </div>  
             <div class="flex items-center justify-between mb-3">
               <span class="text-[10px] text-seken-badge-text bg-seken-badge-bg px-2 py-0.5 rounded-full font-medium">Terpercaya</span>
             </div>
@@ -225,41 +333,102 @@
         </a>`;
     }
 
-    // Render main grid (3 rows x 4 products = 12 cards)
+    // Render main & popular
     const productGrid = document.getElementById("product-grid");
     productGrid.innerHTML = [...products, ...products, ...products].map(createCard).join("");
-
-    // Render popular grid (1 row x 4 products)
     const popularGrid = document.getElementById("popular-grid");
     popularGrid.innerHTML = products.map(createCard).join("");
 
-    // Render popular tags
+    // popular tags
     const tags = ["PS2", "iPhone", "TV", "Asus Laptops", "Macbook", "AC", "Motorcycle", "Power Bank", "Smart TV", "Speaker", "Tablet", "Microwave", "Samsung"];
     const tagsContainer = document.getElementById("popular-tags");
-    tagsContainer.innerHTML = tags.map(tag =>
-      `<a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">${tag}</a>`
-    ).join("");
-  // Check Auth Status Dummy
-    const userStr = localStorage.getItem('seken_user');
-    if(userStr) {
-      try {
-        const user = JSON.parse(userStr);
-        if(user.isLoggedIn) {
-          document.getElementById('auth-section').innerHTML = `
-            <div class="flex items-center gap-2">
-              <div class="w-7 h-7 bg-seken-black text-seken-white rounded-full flex items-center justify-center text-xs font-bold uppercase">${user.name.charAt(0)}</div>
-              <span class="truncate max-w-[80px]">${user.name}</span>
-              <button onclick="logout()" class="text-xs text-red-500 hover:underline ml-2">Keluar</button>
-            </div>
-          `;
-        }
-      } catch(e) {}
-    }
+    tagsContainer.innerHTML = tags.map(tag => `<a href="#" class="text-xs border border-seken-white/50 px-2.5 py-1 rounded hover:bg-seken-white/10 transition-colors">${tag}</a>`).join("");
 
-    function logout() {
+    // ===================== LOGGED-IN USER POPUP (HOVER - TANPA KLIK) =====================
+    // Fungsi untuk merender UI auth sesuai status login, dengan hover popup modern
+    function renderAuthBasedOnUser() {
+      const authContainer = document.getElementById('auth-section');
+      if (!authContainer) return;
+      
+      const userRaw = localStorage.getItem('seken_user');
+      let isLoggedIn = false;
+      let userName = '';
+      
+      if (userRaw) {
+        try {
+          const userData = JSON.parse(userRaw);
+          if (userData.isLoggedIn && userData.name) {
+            isLoggedIn = true;
+            userName = userData.name;
+          }
+        } catch(e) { console.warn(e); }
+      }
+      
+      if (!isLoggedIn) {
+        // Tampilkan link Daftar / Login biasa
+        authContainer.innerHTML = `
+          <a href="auth.html?tab=daftar" class="hover:underline">Daftar</a>
+          <span class="opacity-50">|</span>
+          <a href="auth.html" class="hover:underline">Log in</a>
+        `;
+        return;
+      }
+      
+      // Kondisi SUDAH LOGIN: tampilkan avatar + nama + popup hover (tanpa tombol keluar terpisah)
+      const initial = userName.charAt(0).toUpperCase();
+      // Membuat struktur dengan hover container + popup yang muncul saat kursor diarahkan
+      const loggedInHtml = `
+        <div class="user-menu-container">
+          <div class="user-trigger">
+            <div class="avatar-circle">${initial}</div>
+            <span class="user-name" title="${userName}">${userName}</span>
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <div class="user-popup">
+            <a href="#" class="user-popup-item">👤 Profil Saya</a>
+            <a href="#" class="user-popup-item">📦 Pesanan Saya</a>
+            <a href="#" class="user-popup-item">⚙️ Pengaturan Akun</a>
+            <div class="user-popup-divider"></div>
+            <button id="hover-logout-btn" class="user-popup-item popup-logout">🚪 Keluar</button>
+          </div>
+        </div>
+      `;
+      authContainer.innerHTML = loggedInHtml;
+      
+      // Attach event listener untuk tombol logout yang ada di dalam popup
+      const logoutBtn = document.getElementById('hover-logout-btn');
+      if (logoutBtn) {
+        // Hapus listener lama jika ada, lalu tambahkan yang baru
+        logoutBtn.removeEventListener('click', handleLogout);
+        logoutBtn.addEventListener('click', handleLogout);
+      }
+    }
+    
+    // Fungsi logout yang membersihkan storage dan reload halaman
+    function handleLogout(e) {
+      e.preventDefault();
       localStorage.removeItem('seken_user');
+      // Reload agar state berubah ke mode tidak login
       window.location.reload();
     }
+    
+    // Panggil render saat halaman dimuat
+    renderAuthBasedOnUser();
+    
+    // Optional: jika ada perubahan dari halaman lain (storage event), update secara realtime
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'seken_user') {
+        renderAuthBasedOnUser();
+      }
+    });
+    
+    // Untuk memastikan popup tetap smooth dan tidak ada konflik jika user logout dari tempat lain
+    window.handleLogoutGlobal = function() {
+      localStorage.removeItem('seken_user');
+      window.location.reload();
+    };
   </script>
 </body>
 </html>
